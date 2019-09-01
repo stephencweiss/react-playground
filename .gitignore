@@ -1,0 +1,11 @@
+## Mac OS
+.DS_STORE
+
+## NPM
+node_modules/
+
+## Compiled files
+compiled/
+dist/bundle.js
+
+##Config files
