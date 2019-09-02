@@ -10,6 +10,7 @@ const App = (props) => {
   return (
     <div>
       <h1> my to do list </h1>
+      <List toDos={toDos} actions={actions} {...props}/>
     </div>
   )
 };
