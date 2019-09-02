@@ -7,5 +7,6 @@ node_modules/
 ## Compiled files
 compiled/
 dist/bundle.js
+dist/static*
 
 ##Config files
