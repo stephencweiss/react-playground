@@ -1,11 +1,15 @@
-const path = require('path')
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  mode: 'development',
+  entry: ['webpack-hot-middleware/client','./src/index.js'],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/static/'
   },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   module: {
     rules: [
       {
@@ -16,6 +20,11 @@ module.exports = {
           presets: ['@babel/env', '@babel/react', ]
         }
       },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'raw-loader'],
+        include: __dirname
+      }
     ],
   }
 }
