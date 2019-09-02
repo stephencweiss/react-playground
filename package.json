@@ -4,11 +4,16 @@
   "description": "a playground to understand react, webpack, and babel",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "build:dev": "webpack --mode development"
+    "build:dev": "webpack --mode development --watch",
+    "start": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [ "react" ],
+  "keywords": [
+    "react",
+    "redux",
+    "express"
+  ],
   "author": "Stephen Weiss <stephen.c.weiss@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -17,12 +22,16 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "babel-loader": "^8.0.6",
+    "nodemon": "^1.19.1",
     "prettier": "^1.18.2",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "redux": "^4.0.4"
   }
 }
