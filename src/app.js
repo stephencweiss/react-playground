@@ -1,11 +1,29 @@
 import React from "react";
+import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import * as ToDoActions from './actions'
+import {List} from './components'
 
-const HelloWorld = () => {
+
+const App = (props) => {
+  const {toDos, actions} = props;
   return (
     <div>
-      Hello world! If this changes?
+      <h1> my to do list </h1>
     </div>
   )
 };
 
-export default HelloWorld;
+function mapStateToProps(state) {
+  return {
+    toDos: state.toDos,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(ToDoActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
