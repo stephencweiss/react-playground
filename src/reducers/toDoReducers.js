@@ -28,7 +28,6 @@ export default function toDoReducers (state = initialState, action) {
       ];
 
     case REMOVE_TODO:
-      console.log({state, action})
       return state.filter(toDo => toDo.id !== action.id);
 
     case EDIT_TODO:

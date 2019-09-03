@@ -2,12 +2,11 @@ import React from 'react';
 
 const ToDoItem = props => {
   const handleClick = () => {
-    const id = props.toDo.id;
-    props.removeToDo(id);
+    props.removeToDo(props.toDo.id);
   };
 
   return (
-    <li onClick={handleClick} key={props.toDo.id}>
+    <li onClick={handleClick}>
       {props.toDo.text}
     </li>
   );

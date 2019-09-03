@@ -1,19 +1,16 @@
-
-import { createStore } from 'redux';
-import toDos from '../reducers';
+import { applyMiddleware, compose, createStore, } from 'redux';
+import thunk from 'redux-thunk';
+import reducers from '../reducers';
 import * as actionCreators from '../actions';
 
-export default function configureStore(preloadedState) {
+export default function configureStore(initialState) {
 
-  // use Redux Devtools Extensaion
-  const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__({ actionCreators, serialize: true, trace: true });
-  if (!enhancer) {
-    console.warn('Install Redux DevTools Extension to inspect the app state: ' +
-      'https://github.com/zalmoxisus/redux-devtools-extension#installation')
-  }
+  // composing middleware
+  const finalCreateStore = compose(
+    applyMiddleware(thunk),
+    global.devToolsExtension ? global.devToolsExtension() : f => f)(createStore)
 
-  const store = createStore(toDos, preloadedState, enhancer);
+  const store = finalCreateStore(reducers, initialState);
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
