@@ -3,11 +3,14 @@ const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  entry: ['webpack-hot-middleware/client','./src/index.js'],
+  entry: {
+    middleware: 'webpack-hot-middleware/client',
+    app: './src/index.js',
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist/static/'),
-    publicPath: '/static/'
+    publicPath: '/static/',
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   module: {
@@ -17,14 +20,14 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/env', '@babel/react', ]
-        }
+          presets: ['@babel/env', '@babel/react'],
+        },
       },
       {
-        test: /\.css$/,
-        loaders: ['style-loader', 'raw-loader', 'css-loader'],
-        include: __dirname
-      }
+        test: [/\.css$/],
+        loaders: [ 'style-loader', 'css-loader'],
+        include: __dirname,
+      },
     ],
-  }
-}
+  },
+};
