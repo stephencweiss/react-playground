@@ -1,8 +1,8 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import AddToDo from './AddToDo';
 import ToDoItem from './ToDoItem';
+import "react-toastify/dist/ReactToastify.css";
 
 const List = props => {
   const { toDos, actions } = props;
