@@ -10,3 +10,4 @@ dist/bundle.js
 dist/static*
 
 ##Config files
+src/Auth/auth_config.json

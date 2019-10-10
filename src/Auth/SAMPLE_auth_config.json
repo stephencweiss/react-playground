@@ -1,0 +1,8 @@
+/* Steps to use:
+1. Add domain and clientId details from Auth0 App
+2. Delete prefix (SAMPLE_)
+*/
+{
+  "domain": "",
+  "clientId": ""
+}

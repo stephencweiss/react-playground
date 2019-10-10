@@ -1,4 +1,5 @@
-import List from './List'
-import AddToDo from './AddToDo'
+import List from './List';
+import AddToDo from './AddToDo';
+import NavBar from './NavBar';
 
-export {List, AddToDo};
+export { AddToDo, List, NavBar };

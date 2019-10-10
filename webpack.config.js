@@ -21,11 +21,12 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['@babel/env', '@babel/react'],
+          plugins: ['@babel/plugin-transform-runtime'],
         },
       },
       {
         test: [/\.css$/],
-        loaders: [ 'style-loader', 'css-loader'],
+        loaders: ['style-loader', 'css-loader'],
         include: __dirname,
       },
     ],
